@@ -12,8 +12,6 @@ com/todoAppWithAws/book/springboot/web/dto/PostsSaveRequestDto.java
 com/todoAppWithAws/book/springboot/web/dto/PostsUpdateRequestDto.java
  com.todoAppWithAws.book.springboot.web.dto.PostsUpdateRequestDto
  com.todoAppWithAws.book.springboot.web.dto.PostsUpdateRequestDto$PostsUpdateRequestDtoBuilder
-com/todoAppWithAws/book/springboot/web/dto/PostsResponseDto.java
- com.todoAppWithAws.book.springboot.web.dto.PostsResponseDto
 com/todoAppWithAws/book/springboot/domain/posts/Posts.java
  com.todoAppWithAws.book.springboot.domain.posts.Posts
  com.todoAppWithAws.book.springboot.domain.posts.Posts$PostsBuilder
@@ -21,3 +19,5 @@ com/todoAppWithAws/book/springboot/service/PostsService.java
  com.todoAppWithAws.book.springboot.service.PostsService
 com/todoAppWithAws/book/springboot/web/PostApiController.java
  com.todoAppWithAws.book.springboot.web.PostApiController
+com/todoAppWithAws/book/springboot/web/dto/PostsResponseDto.java
+ com.todoAppWithAws.book.springboot.web.dto.PostsResponseDto

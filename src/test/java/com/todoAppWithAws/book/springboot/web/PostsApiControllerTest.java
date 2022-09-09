@@ -1,14 +1,11 @@
 package com.todoAppWithAws.book.springboot.web;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.todoAppWithAws.book.springboot.domain.posts.Posts;
 import com.todoAppWithAws.book.springboot.domain.posts.PostsRepository;
 import com.todoAppWithAws.book.springboot.web.dto.PostsSaveRequestDto;
 import com.todoAppWithAws.book.springboot.web.dto.PostsUpdateRequestDto;
-import lombok.With;
 import org.assertj.core.api.Assertions;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +15,8 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.context.WebApplicationContext;
 
 import java.util.List;
-
-import static org.springframework.mock.http.server.reactive.MockServerHttpRequest.post;
-import static org.springframework.mock.http.server.reactive.MockServerHttpRequest.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
