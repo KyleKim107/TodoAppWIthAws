@@ -2,7 +2,9 @@ com/todoAppWithAws/book/springboot/web/dto/HelloResponseDtoTest.java
  com.todoAppWithAws.book.springboot.web.dto.HelloResponseDtoTest
 com/todoAppWithAws/book/springboot/web/HelloControllerTest.java
  com.todoAppWithAws.book.springboot.web.HelloControllerTest
-com/todoAppWithAws/book/springboot/domain/posts/PostsRepositoryTest.java
- com.todoAppWithAws.book.springboot.domain.posts.PostsRepositoryTest
 com/todoAppWithAws/book/springboot/web/PostsApiControllerTest.java
  com.todoAppWithAws.book.springboot.web.PostsApiControllerTest
+com/todoAppWithAws/book/springboot/domain/PostsRepositoryTest.java
+ com.todoAppWithAws.book.springboot.domain.PostsRepositoryTest
+com/todoAppWithAws/book/springboot/web/IndexControllerTest.java
+ com.todoAppWithAws.book.springboot.web.IndexControllerTest
