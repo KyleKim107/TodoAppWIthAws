@@ -54,6 +54,11 @@ public class OAuthAttributes {
                 .build();
     }
 
+    /*
+        - User엔티티를 생성합니다.
+        - OauthAttribute에서 엔티티를 생성하는 시점은 처음 가입할때 입니다.
+        - 가입 직후 기본 권한은 Guest입니다.
+     */
     public User toEntity() {
         return User.builder()
                 .name(name)

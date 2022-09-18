@@ -1,29 +1,51 @@
-com/todoAppWithAws/book/springboot/web/HelloController.java
- com.todoAppWithAws.book.springboot.web.HelloController
-com/todoAppWithAws/book/springboot/web/dto/HelloResponseDto.java
- com.todoAppWithAws.book.springboot.web.dto.HelloResponseDto
-com/todoAppWithAws/book/springboot/web/dto/PostsUpdateRequestDto.java
- com.todoAppWithAws.book.springboot.web.dto.PostsUpdateRequestDto
- com.todoAppWithAws.book.springboot.web.dto.PostsUpdateRequestDto$PostsUpdateRequestDtoBuilder
 com/todoAppWithAws/book/springboot/web/dto/PostsSaveRequestDto.java
  com.todoAppWithAws.book.springboot.web.dto.PostsSaveRequestDto
  com.todoAppWithAws.book.springboot.web.dto.PostsSaveRequestDto$PostsSaveRequestDtoBuilder
-com/todoAppWithAws/book/springboot/Application.java
- com.todoAppWithAws.book.springboot.Application
+com/todoAppWithAws/book/springboot/domain/user/Role.java
+ com.todoAppWithAws.book.springboot.domain.user.Role
+com/todoAppWithAws/book/springboot/config/auth/SecurityConfig.java
+ com.todoAppWithAws.book.springboot.config.auth.SecurityConfig
+com/todoAppWithAws/book/springboot/config/auth/dto/SessionUser.java
+ com.todoAppWithAws.book.springboot.config.auth.dto.SessionUser
+com/todoAppWithAws/book/springboot/web/HelloController.java
+ com.todoAppWithAws.book.springboot.web.HelloController
 com/todoAppWithAws/book/springboot/domain/posts/Posts.java
  com.todoAppWithAws.book.springboot.domain.posts.Posts
  com.todoAppWithAws.book.springboot.domain.posts.Posts$PostsBuilder
-com/todoAppWithAws/book/springboot/domain/BaseTimeEntity.java
- com.todoAppWithAws.book.springboot.domain.BaseTimeEntity
+com/todoAppWithAws/book/springboot/config/auth/LoginUserArgumentResolver.java
+ com.todoAppWithAws.book.springboot.config.auth.LoginUserArgumentResolver
 com/todoAppWithAws/book/springboot/web/dto/PostsResponseDto.java
  com.todoAppWithAws.book.springboot.web.dto.PostsResponseDto
+com/todoAppWithAws/book/springboot/Application.java
+ com.todoAppWithAws.book.springboot.Application
 com/todoAppWithAws/book/springboot/domain/posts/PostsRepository.java
  com.todoAppWithAws.book.springboot.domain.posts.PostsRepository
-com/todoAppWithAws/book/springboot/web/dto/PostsListResponseDto.java
- com.todoAppWithAws.book.springboot.web.dto.PostsListResponseDto
+com/todoAppWithAws/book/springboot/config/auth/WebConfig.java
+ com.todoAppWithAws.book.springboot.config.auth.WebConfig
+com/todoAppWithAws/book/springboot/web/dto/HelloResponseDto.java
+ com.todoAppWithAws.book.springboot.web.dto.HelloResponseDto
+com/todoAppWithAws/book/springboot/config/auth/CustomOAuth2UserService.java
+ com.todoAppWithAws.book.springboot.config.auth.CustomOAuth2UserService
+com/todoAppWithAws/book/springboot/config/auth/LoginUser.java
+ com.todoAppWithAws.book.springboot.config.auth.LoginUser
+com/todoAppWithAws/book/springboot/web/dto/PostsUpdateRequestDto.java
+ com.todoAppWithAws.book.springboot.web.dto.PostsUpdateRequestDto
+ com.todoAppWithAws.book.springboot.web.dto.PostsUpdateRequestDto$PostsUpdateRequestDtoBuilder
+com/todoAppWithAws/book/springboot/domain/user/UserRepository.java
+ com.todoAppWithAws.book.springboot.domain.user.UserRepository
 com/todoAppWithAws/book/springboot/service/PostsService.java
  com.todoAppWithAws.book.springboot.service.PostsService
+com/todoAppWithAws/book/springboot/domain/BaseTimeEntity.java
+ com.todoAppWithAws.book.springboot.domain.BaseTimeEntity
 com/todoAppWithAws/book/springboot/web/PostApiController.java
  com.todoAppWithAws.book.springboot.web.PostApiController
+com/todoAppWithAws/book/springboot/domain/user/User.java
+ com.todoAppWithAws.book.springboot.domain.user.User
+ com.todoAppWithAws.book.springboot.domain.user.User$UserBuilder
 com/todoAppWithAws/book/springboot/web/IndexController.java
  com.todoAppWithAws.book.springboot.web.IndexController
+com/todoAppWithAws/book/springboot/web/dto/PostsListResponseDto.java
+ com.todoAppWithAws.book.springboot.web.dto.PostsListResponseDto
+com/todoAppWithAws/book/springboot/config/auth/dto/OAuthAttributes.java
+ com.todoAppWithAws.book.springboot.config.auth.dto.OAuthAttributes
+ com.todoAppWithAws.book.springboot.config.auth.dto.OAuthAttributes$OAuthAttributesBuilder
