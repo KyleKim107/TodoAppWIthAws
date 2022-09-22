@@ -115,8 +115,6 @@ public class PostsApiControllerTest {
 
         //when
         // .exchage() : update할때 사용. 결과를 ResponseEntity로 반환 받음. Http Header를 변경할 수 있음.
-//        ResponseEntity<Long> responseEntity = restTemplate.exchange(url,
-//                HttpMethod.PUT, requestEntity, Long.class);
         mvc.perform(put(url)
                         .contentType(MediaType.APPLICATION_JSON_UTF8)
                         .content(new ObjectMapper().writeValueAsString(requestDto)))
