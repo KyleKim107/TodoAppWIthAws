@@ -90,7 +90,7 @@ public class PostsApiControllerTest {
 
     @Test
     @WithMockUser(roles="USER")
-    public void Posts_수정된다() throws Exception {
+    public void Posts_modify() throws Exception {
         //given
         Posts savedPosts = postsRepository.save(Posts.builder()
                 .title("title")
