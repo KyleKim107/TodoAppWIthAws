@@ -15,16 +15,16 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r TodoAppWithAws *
-  - mkdir -p deploy
-  - mv TodoAppWithAws.zip deploy/TodoAppWithAws.zip
-#  - mkdir -p before-deploy # zip에 포함시킬 파일들을 담을 디렉토리 생성
-#  - cp scripts/*.sh before-deploy/ # codeDeploy에서 받아서 실행시킬 스크립트 파일들
-#  - cp appspec.yml before-deploy/
-#  - cp build/libs/*.jar before-deploy/
-#  - cd before-deploy && zip -r before-deploy * #필요한 파일들만 모아서 S3에 넘겨준다.
-#  - cd ../ && mkdir -p deploy
-#  - mv before-deploy/before-deploy.zip deploy/TodoAppWithAws.zip
+#  - zip -r TodoAppWithAws *
+#  - mkdir -p deploy
+#  - mv TodoAppWithAws.zip deploy/TodoAppWithAws.zip
+  - mkdir -p before-deploy # zip에 포함시킬 파일들을 담을 디렉토리 생성
+  - cp scripts/*.sh before-deploy/ # codeDeploy에서 받아서 실행시킬 스크립트 파일들
+  - cp appspec.yml before-deploy/
+  - cp build/libs/*.jar before-deploy/
+  - cd before-deploy && zip -r before-deploy * #필요한 파일들만 모아서 S3에 넘겨준다.
+  - cd ../ && mkdir -p deploy
+  - mv before-deploy/before-deploy.zip deploy/TodoAppWithAws.zip
 
 deploy:
   - provider: s3
