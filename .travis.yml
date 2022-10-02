@@ -19,7 +19,7 @@ before_deploy:
   - cp scripts/*.sh before-deploy/ # codeDeploy에서 받아서 실행시킬 스크립트 파일들
   - cp appspec.yml before-deploy/
   - cp build/libs/*.jar before-deploy/
-  - cd before-deploy && zip -r before-deploy #필요한 파일들만 모아서 S3에 넘겨준다.
+  - cd before-deploy && zip -r before-deploy * #필요한 파일들만 모아서 S3에 넘겨준다.
   - cd ../ && mkdir -p deploy
   - mv before-deploy/before-deploy.zip deploy/TodoAppWithAws.zip
 
