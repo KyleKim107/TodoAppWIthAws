@@ -18,7 +18,7 @@ buildscript {
     apply plugin: 'io.spring.dependency-management'
 
     group 'org.example'
-    version '1.0.2-SNAPSHOT'
+    version '1.0.2-SNAPSHOT'+new Date().format("yyyyMMddJJmmss")
 
     repositories {
         mavenCentral()
