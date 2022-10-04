@@ -8,6 +8,7 @@ function find_idle_profile()
     RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/profile)
 # $(command) is “command substitution”.
 # ${parameter} is “parameter substitution”.
+  echo "> debugging RESPONSE_CODE - ${RESPONSE_CODE}"
 
   # 현재 엔진엑스가 바라보고 있는 스트링 부트가 정상적으로 수행중인지 확인 보통 400이상의 응답은 오류
     if [ ${RESPONSE_CODE} -ge 400 ] # 400 보다 크면 (즉, 40x/50x 에러 모두 포함)
