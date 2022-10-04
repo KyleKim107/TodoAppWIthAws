@@ -16,7 +16,7 @@ function find_idle_profile()
     else
         CURRENT_PROFILE=$(curl -s http://localhost/profile)
     fi
-
+    echo "> 현재 프로파일 - $CURRENT_PROFILE"
     if [ ${CURRENT_PROFILE} == real1 ]
     then
       IDLE_PROFILE=real2 # 엔진엑스와 연결되지 않은 프로파일입니다. 이제 스프링과 연결하기 위해 반환합니다.
