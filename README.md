@@ -23,6 +23,11 @@ This project is a simple Todo app that supports adding and removing items from t
 
 
 # Architecture
+- The application uses a Spring Boot framework with a MariaDB database.
+- Mustache templates are used for the frontend to generate dynamic HTML.
+NginX acts as a reverse proxy to handle requests efficiently.
+CI/CD pipeline automates testing, building, and deployment using Travis CI, S3, and CodeDeploy.
+The application is hosted on AWS EC2 instances.
 ![img.png](img.png)
 
 # Key features and functionality
