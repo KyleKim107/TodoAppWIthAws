@@ -6,9 +6,19 @@
 
 # Stack 
 - Framework: Spring Boot
-- DB: H2, 
-- Front-end: Mustache(To create dynamic HTML) 
-- Spring Security
+- DB: MariaDB 
+- Front-end: Mustache (To create dynamic HTML)
+  - Mustache is known for its simple and intuitive syntax. It uses a minimalist approach with just a few tags, making it easy to learn and use.
+- Spring Security, Data JPA
+- NginX
+- AWS
+  - S3
+    - 
+  - CodeDeploy
+  - EC2
+- 
+
+
 
 
 
@@ -25,3 +35,6 @@
 ![](images/적용_확인.png)
 
 # Google Login
+
+
+ 
