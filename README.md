@@ -1,40 +1,42 @@
-# Todo-App with AWS services
+# Todo-App with AWS Services
 
-# Introduction
-- Superficially, this is a simple todo app that supports adding and removing items from the todo list. The business logic for the service only includes CRUD operations (Create, Read, Update, Delete).
-- The primary focus of this project is to utilize and understand various AWS services. Secondly, it aims to deploy these services publicly. Lastly, it emphasizes implementing a 24/7 uninterrupted service using Nginx. 
+## Introduction
+This project is a simple Todo app that supports adding and removing items from the todo list, with business logic limited to CRUD operations (Create, Read, Update, Delete). The primary focus is to utilize and understand various AWS services, deploy the app publicly, and ensure a 24/7 uninterrupted service using Nginx.
 
-# Stack 
-- Framework: Spring Boot
-- DB: MariaDB 
-- Front-end: Mustache (To create dynamic HTML)
+
+
+# Stack
+- **Framework:** Spring Boot
+- **Database:** MariaDB
+- **Front-end:** Mustache (To create dynamic HTML)
   - Mustache is known for its simple and intuitive syntax. It uses a minimalist approach with just a few tags, making it easy to learn and use.
-- Spring Security, Data JPA
-- NginX
-- AWS
-  - S3
-    - 
-  - CodeDeploy
-  - EC2
-- 
+- **Other Technologies:** Spring Security, Spring Data JPA, JUnit 5
+- **Web Server:** NginX
+- **CI/CD:**
+  - **Travis CI:**
+    - Runs integration tests for new commits on the repository
+    - Builds the project and pushes the build files to S3
+  - **S3 & CodeDeploy [CD]:**
+    - After CI, Travis CI triggers CodeDeploy, which then pulls the build zip file from S3 and deploys it to EC2
+- **Hosting:** EC2
 
 
 
-
-
-# 클라우드를 이용한 게시판 페이지
+# Architecture
 ![img.png](img.png)
 
-# 게시판 메인 페이지
+# Key features and functionality
+
+## Main page
 ![](images/메인_페이지.png)
 
-# 글 등록
+## Register Todo-List
 ![](images/게시글_등록.png)
 
-# 등록 확인 
+## Google Login 
 ![](images/적용_확인.png)
 
-# Google Login
+# 
 
 
  
