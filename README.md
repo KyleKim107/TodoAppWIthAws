@@ -7,27 +7,38 @@ This project is a simple Todo app that supports adding and removing items from t
 
 # Stack
 - **Framework:** Spring Boot
-- **Database:** MariaDB
-- **Front-end:** Mustache (To create dynamic HTML)
+- **Database:** RDS [MariaDB]
+- **Front-end:** Mustache 
   - Mustache is known for its simple and intuitive syntax. It uses a minimalist approach with just a few tags, making it easy to learn and use.
 - **Other Technologies:** Spring Security, Spring Data JPA, JUnit 5
 - **Web Server:** NginX
 - **CI/CD:**
-  - **Travis CI:**
-    - Runs integration tests for new commits on the repository
-    - Builds the project and pushes the build files to S3
+  - **Travis [CI]:**
   - **S3 & CodeDeploy [CD]:**
-    - After CI, Travis CI triggers CodeDeploy, which then pulls the build zip file from S3 and deploys it to EC2
 - **Hosting:** EC2
 
 
+## Architecture
 
-# Architecture
-- The application uses a Spring Boot framework with a MariaDB database.
-- Mustache templates are used for the frontend to generate dynamic HTML.
-NginX acts as a reverse proxy to handle requests efficiently.
-CI/CD pipeline automates testing, building, and deployment using Travis CI, S3, and CodeDeploy.
-The application is hosted on AWS EC2 instances.
+The architecture of this project integrates several AWS services to create a robust CI/CD pipeline and deployment setup. Below is an overview of the system components and their interactions:
+
+![Architecture Diagram](path/to/your/image.png)
+
+1. **Travis CI:** Continuous Integration service that is triggered by new commits to the GitHub repository. Travis CI runs tests and builds the project.
+
+2. **S3:** After a successful build, Travis CI uploads the build artifacts (e.g., a ZIP file) to an S3 bucket.
+
+3. **CodeDeploy:** CodeDeploy is notified by Travis CI to start a deployment. It retrieves the build artifacts from S3 and deploys them to the EC2 instances.
+
+4. **AWS EC2:** The application runs on EC2 instances. These instances have Spring Boot applications installed and are fronted by NginX, which acts as a reverse proxy to manage incoming traffic. There are two processes in each EC2 instance to ensure high availability:
+  - **Process 1:** Serves the current version of the application.
+  - **Process 2:** When a new commit is pushed, this process is used to deploy the new version while the other process continues to serve users. Once the deployment is successful, traffic is switched to the new process, ensuring zero downtime.
+
+5. **NginX:** NginX serves as a reverse proxy, handling requests from users and distributing them to the appropriate Spring Boot instances. It also manages the switching of processes during deployments to ensure a seamless user experience.
+
+
+This setup ensures continuous integration and delivery, automated deployments, and high availability for the application.
+
 ![img.png](img.png)
 
 # Key features and functionality
@@ -41,7 +52,8 @@ The application is hosted on AWS EC2 instances.
 ## Google Login 
 ![](images/적용_확인.png)
 
-# 
+# Troubleshooting
+- @Test annotation [vlog url]
 
 
  
