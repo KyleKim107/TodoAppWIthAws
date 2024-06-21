@@ -17,13 +17,11 @@ This project is a simple Todo app that supports adding and removing items from t
   - **S3 & CodeDeploy [CD]:**
 - **Hosting:** EC2
 
-#  구글 auto 추가해서 내용 좀 늘려 
+#  구글 auth 추가해서 내용 좀 늘려 
 
 ## Architecture
 
 The architecture of this project integrates several AWS services to create a robust CI/CD pipeline and deployment setup. Below is an overview of the system components and their interactions:
-
-![Architecture Diagram](path/to/your/image.png)
 
 1. **Travis CI:** Continuous Integration service that is triggered by new commits to the GitHub repository. Travis CI runs tests and builds the project.
 
@@ -53,8 +51,16 @@ This setup ensures continuous integration and delivery, automated deployments, a
 ## Google Login 
 ![](images/적용_확인.png)
 
-# Troubleshooting
-- @Test annotation [vlog url]
+# Study & Troubleshooting 
+- [Hibernate & JPA]
+- [Updating in JPA]
+- [Tomcat not starting error]
+- [JPA Save]
+- [JPA Proxy]
 
 
- 
+[Hibernate & JPA]: https://velog.io/@sigint_107/Hibernate%EC%99%80-JPA%EB%82%B4%EB%B6%80-%EB%9C%AF%EC%96%B4%EB%B3%B4%EA%B8%B0
+[Updating in JPA]: https://velog.io/@sigint_107/JPA-Update
+[Tomcat not starting error]: https://velog.io/@sigint_107/Tomcat%EC%9D%B4-%EC%95%88%EC%98%AC%EB%9D%BC-%EA%B0%88%EB%95%8C
+[JPA Proxy]: https://velog.io/@sigint_107/JPA-Proxy%EB%9E%80
+[JPA Save]: https://velog.io/@sigint_107/JPA-Save%EB%8F%99%EC%9E%91%EA%B5%AC%EC%A1%B0
