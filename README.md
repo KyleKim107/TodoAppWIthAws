@@ -17,6 +17,7 @@ This project is a simple Todo app that supports adding and removing items from t
   - **S3 & CodeDeploy [CD]:**
 - **Hosting:** EC2
 
+#  구글 auto 추가해서 내용 좀 늘려 
 
 ## Architecture
 
