@@ -17,7 +17,6 @@ This project is a simple Todo app that supports adding and removing items from t
   - **S3 & CodeDeploy [CD]:**
 - **Hosting:** EC2
 
-#  구글 auth 추가해서 내용 좀 늘려 
 
 ## Architecture
 
@@ -59,7 +58,16 @@ This setup ensures continuous integration and delivery, automated deployments, a
 - [JPA Proxy]
 - [Google Auth Class]
 
-batch file
+# The Brief batch files explanations 
+##### Please refer to the link next to the file name for the full explanation.
+
+## start.sh
+## deploy.sh
+## stop.sh
+## swtich.sh
+## profile.sh
+## health.sh
+
 
 [Hibernate & JPA]: https://velog.io/@sigint_107/Hibernate%EC%99%80-JPA%EB%82%B4%EB%B6%80-%EB%9C%AF%EC%96%B4%EB%B3%B4%EA%B8%B0
 [Updating in JPA]: https://velog.io/@sigint_107/JPA-Update
