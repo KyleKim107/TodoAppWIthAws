@@ -1,8 +1,14 @@
 # Todo-App with AWS Services
 
 ## Introduction
-This project is a simple Todo app that supports adding and removing items from the todo list, with business logic limited to CRUD operations (Create, Read, Update, Delete). The primary focus is to utilize and understand various AWS services, deploy the app publicly, and ensure a 24/7 uninterrupted service using Nginx.
+Working on this project, I found the following particularly interesting:
 
+- **Integration with AWS Services** 
+  - Leveraging AWS S3 and CodeDeploy for seamless CI/CD was a fascinating experience. The way AWS services integrate and streamline deployment is impressive.
+- **NginX as a Reverse Proxy** 
+  - Setting up NginX to manage routing and load balancing highlighted its efficiency and simplicity in handling multiple services.
+- **Spring Boot and Mustache** 
+  - Using Spring Boot for backend development and Mustache for the frontend showcased the power of combining robust backend frameworks with simple, intuitive frontend templating engines.
 
 
 # Stack
@@ -33,6 +39,7 @@ The architecture of this project integrates several AWS services to create a rob
   - **Process 2:** When a new commit is pushed, this process is used to deploy the new version while the other process continues to serve users. Once the deployment is successful, traffic is switched to the new process, ensuring zero downtime.
 
 5. **NginX:** NginX serves as a reverse proxy, handling requests from users and distributing them to the appropriate Spring Boot instances. It also manages the switching of processes during deployments to ensure a seamless user experience.
+6. AWS RDS (Relational Database Service): RDS is used to manage the MariaDB database, ensuring scalability, durability, and automated backups.
 
 
 This setup ensures continuous integration and delivery, automated deployments, and high availability for the application.
@@ -56,8 +63,8 @@ This setup ensures continuous integration and delivery, automated deployments, a
 ![](images/게시글_등록.png)
 
 ## Google Login 
-- The user can login with their own google account
-
+- Users can log in with their Google account.
+- Each user can only see their own todo entities.
 ![](images/적용_확인.png)
 
 
