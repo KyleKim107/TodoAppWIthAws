@@ -10,7 +10,7 @@ This project is a simple Todo app that supports adding and removing items from t
 - **Database:** RDS [MariaDB]
 - **Front-end:** Mustache 
   - Mustache is known for its simple and intuitive syntax. It uses a minimalist approach with just a few tags, making it easy to learn and use.
-- **Other Technologies:** Spring Security, Spring Data JPA, JUnit 5
+- **Other Technologies:** Spring Security, Spring Data JPA, JUnit 5, Google Auth
 - **Web Server:** NginX
 - **CI/CD:**
   - **Travis [CI]:**
@@ -57,10 +57,13 @@ This setup ensures continuous integration and delivery, automated deployments, a
 - [Tomcat not starting error]
 - [JPA Save]
 - [JPA Proxy]
+- [Google Auth Class]
 
+batch file
 
 [Hibernate & JPA]: https://velog.io/@sigint_107/Hibernate%EC%99%80-JPA%EB%82%B4%EB%B6%80-%EB%9C%AF%EC%96%B4%EB%B3%B4%EA%B8%B0
 [Updating in JPA]: https://velog.io/@sigint_107/JPA-Update
 [Tomcat not starting error]: https://velog.io/@sigint_107/Tomcat%EC%9D%B4-%EC%95%88%EC%98%AC%EB%9D%BC-%EA%B0%88%EB%95%8C
 [JPA Proxy]: https://velog.io/@sigint_107/JPA-Proxy%EB%9E%80
 [JPA Save]: https://velog.io/@sigint_107/JPA-Save%EB%8F%99%EC%9E%91%EA%B5%AC%EC%A1%B0
+[Google Auth Class]: https://velog.io/@sigint_107/Registrating-the-Google-Auth-into-the-Spring-boot-application
