@@ -42,21 +42,24 @@ This setup ensures continuous integration and delivery, automated deployments, a
 # Key features and functionality
 
 ## Main page
+- The user can log in to the app with a Google account.
+- Retrieve and display the todo list.
+
 ![](images/메인_페이지.png)
 
-## Register Todo-List
+## Writing Todo Entity
+  - The user can input information such as:
+    - **Todo:** The task or item to be done.
+    - **Author:** The person who is adding the todo item.
+    - **Memo:** Additional notes or details about the todo item.
+
 ![](images/게시글_등록.png)
 
 ## Google Login 
+- The user can login with their own google account
+
 ![](images/적용_확인.png)
 
-# Study & Troubleshooting 
-- [Hibernate & JPA]
-- [Updating in JPA]
-- [Tomcat not starting error]
-- [JPA Save]
-- [JPA Proxy]
-- [Google Auth Class]
 
 # The Brief batch files explanations 
 ##### Please refer to the link next to the file name for the full explanation.
@@ -68,6 +71,13 @@ This setup ensures continuous integration and delivery, automated deployments, a
 ## profile.sh
 ## health.sh
 
+# Study & Troubleshooting
+- [Hibernate & JPA]
+- [Updating in JPA]
+- [Tomcat not starting error]
+- [JPA Save]
+- [JPA Proxy]
+- [Google Auth Class]
 
 [Hibernate & JPA]: https://velog.io/@sigint_107/Hibernate%EC%99%80-JPA%EB%82%B4%EB%B6%80-%EB%9C%AF%EC%96%B4%EB%B3%B4%EA%B8%B0
 [Updating in JPA]: https://velog.io/@sigint_107/JPA-Update
