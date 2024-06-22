@@ -1,45 +1,47 @@
 #!/usr/bin/env bash
 
-# bash는 return value가 안되니 *제일 마지막줄에 echo로 해서 결과 출력*후, 클라이언트에서 값을 사용한다
+# Bash does not support return values, so the result is output using echo at the very end,
+# and the client uses that value.
 
-# 쉬고 있는 profile 찾기: real1이 사용중이면 real2가 쉬고 있고, 반대면 real1이 쉬고 있음
+# Finding the idle profile: if real1 is in use, then real2 is idle, and vice versa.
 function find_idle_profile()
 {
     RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/profile)
-# $(command) is “command substitution”.
-# ${parameter} is “parameter substitution”.
+    # $(command) is “command substitution”.
+    # ${parameter} is “parameter substitution”.
 
-  # 현재 엔진엑스가 바라보고 있는 스트링 부트가 정상적으로 수행중인지 확인 보통 400이상의 응답은 오류
-    if [ ${RESPONSE_CODE} -ge 400 ] # 400 보다 크면 (즉, 40x/50x 에러 모두 포함)
+    # Checking if the Spring Boot application that Nginx is currently pointing to is running normally.
+    # Generally, responses with status codes 400 or higher indicate an error.
+    if [ ${RESPONSE_CODE} -ge 400 ] # If greater than 400 (including all 40x/50x errors)
     then
         CURRENT_PROFILE=real2
     else
         CURRENT_PROFILE=$(curl -s http://localhost/profile)
     fi
-    echo "> 현재 프로파일 - $CURRENT_PROFILE"
+    echo "> Current profile - $CURRENT_PROFILE"
     if [ ${CURRENT_PROFILE} == real1 ]
     then
-      IDLE_PROFILE=real2 # 엔진엑스와 연결되지 않은 프로파일입니다. 이제 스프링과 연결하기 위해 반환합니다.
+        IDLE_PROFILE=real2 # This profile is not connected to Nginx. It will be returned to connect with Spring.
     else
-      IDLE_PROFILE=real1
+        IDLE_PROFILE=real1
     fi
 
     echo "${IDLE_PROFILE}"
-    # bash라는 스크립트는 값을 변환하는 기능이 없다
-    #그래서 제일 마지막에 echo로 결과를 출력 후에 클라이언트에서 그 값을 잡아서
-    # ($(find_idle_profile))에서 사용 합니다.
-    ### 중간에 echo를 사용하지 말것
+    # Bash scripts do not have the ability to return values.
+    # Therefore, the result is output using echo at the very end,
+    # and the client captures that value to use in ($(find_idle_profile)).
+    ### Do not use echo in the middle of the function.
 }
 
-# 쉬고 있는 profile의 port 찾기
+# Finding the port of the idle profile
 function find_idle_port()
 {
     IDLE_PROFILE=$(find_idle_profile)
 
     if [ ${IDLE_PROFILE} == real1 ]
     then
-      echo "8081"
+        echo "8081"
     else
-      echo "8082"
+        echo "8082"
     fi
 }

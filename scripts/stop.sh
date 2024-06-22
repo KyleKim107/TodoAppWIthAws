@@ -2,17 +2,17 @@
 
 ABSPATH=$(readlink -f $0)
 ABSDIR=$(dirname $ABSPATH)
-# allow you using func inside of profile.sh
-source ${ABSDIR}/profile.sh # like import in java
+# Allows using functions inside profile.sh
+source ${ABSDIR}/profile.sh # Similar to import in Java
 
 IDLE_PORT=$(find_idle_port)
 
-echo "> $IDLE_PORT 에서 구동중인 애플리케이션 pid 확인"
+echo "> Checking for the PID of the application running on port $IDLE_PORT"
 IDLE_PID=$(lsof -t -i:${IDLE_PORT})
 
 if [ -z ${IDLE_PID} ]
 then
-  echo "> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다."
+  echo "> No running application to stop."
 else
   echo "> kill -15 $IDLE_PID"
   kill -15 ${IDLE_PID}

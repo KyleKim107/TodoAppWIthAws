@@ -7,12 +7,12 @@ source ${ABSDIR}/profile.sh
 function switch_proxy() {
     IDLE_PORT=$(find_idle_port)
 
-    echo "> 전환할 Port: $IDLE_PORT"
-    echo "> Port 전환"
+    echo "> Port to switch to: $IDLE_PORT"
+    echo "> Switching port"
     echo "set \$service_url http://127.0.0.1:${IDLE_PORT};" | sudo tee /etc/nginx/conf.d/service-url.inc
 
-    # sudo tee /etc/nginx/conf.d/service-url.inc에서 service_url파일을 덮어 씁니다.
-  #
-    echo "> 엔진엑스 Reload"
+    # Overwrites the service_url file in /etc/nginx/conf.d/service-url.inc using sudo tee.
+    #
+    echo "> Reloading Nginx"
     sudo service nginx reload
 }
