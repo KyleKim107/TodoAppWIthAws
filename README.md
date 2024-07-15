@@ -71,12 +71,98 @@ This setup ensures continuous integration and delivery, automated deployments, a
 # The Brief batch files explanations 
 ##### Please refer to the link next to the file name for the full explanation.
 
-## start.sh
-## deploy.sh
-## stop.sh
-## swtich.sh
 ## profile.sh
+* This script is used to find the idle profile and its corresponding port for a Spring Boot application managed by Nginx.
+```
+RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/profile)
+
+ if [ ${RESPONSE_CODE} -ge 400 ]
+    then
+        CURRENT_PROFILE=real2
+    else
+        CURRENT_PROFILE=$(curl -s http://localhost/profile)
+    fi
+    echo "> Current profile - $CURRENT_PROFILE"
+```
+* The purpose is to identify which profile (and port) is not currently in use by Nginx, so it can be safely updated without disrupting the running application.
+```
+ if [ ${CURRENT_PROFILE} == real1 ]
+    then
+        IDLE_PROFILE=real2
+    else
+        IDLE_PROFILE=real1
+    fi
+
+    echo "${IDLE_PROFILE}"
+```
+## start.sh
+* ### This script deploys a new version of a Spring Boot project by copying the build files,
+* ### setting necessary permissions, and running the application with the appropriate profile.
+<br>
+
+```
+ABSPATH=$(readlink -f $0)
+ABSDIR=$(dirname $ABSPATH)
+```
+* readlink -f $0 gets the absolute path of the script.
+* dirname $ABSPATH gets the directory name from the absolute path.
+## deploy.sh
+### Copy the Build File
+```
+echo "> Copying build file"
+cp $REPOSITORY/zip/*.jar $REPOSITORY/
+```
+* Copies the JAR file(s) from the zip subdirectory to the REPOSITORY directory.
+### Check for the PID of the Currently Running Application
+```
+echo "> Checking for the PID of the currently running application"
+CURRENT_PID=$(lsof -t -i:8080)
+echo "PID of the currently running application: $CURRENT_PID"
+```
+* lsof -t -i:8080 finds the PID of the process using port 8080, which is where the application is expected to run.
+```
+if [ -z "$CURRENT_PID" ]; then
+    echo "> No running application, so no need to stop."
+else
+    kill -15 $CURRENT_PID
+```
+* If CURRENT_PID is not empty, it sends a SIGTERM (kill -15) to the process to gracefully stop it and waits for 5 seconds to ensure it stops.
+### Run the New Application
+```
+nohup java -jar \
+    -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties \
+    -Dspring.profiles.active=real \
+    $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
+```
+* Runs the JAR file with nohup so that it continues running even if the terminal is closed.
+## stop.sh
+#### This script stops the application running on the idle port determined by `profile.sh`.
+```
+source ${ABSDIR}/profile.sh # Similar to import in Java
+# Allows using functions inside profile.sh
+
+IDLE_PORT=$(find_idle_port)
+
+kill -15 ${IDLE_PID}
+```
+* This line sources the profile.sh file, which is expected to be in the same directory as the script.
+
+## swtich.sh
+* This script switches the Nginx proxy to point to the idle port where the new version of the application is running.
+```
+IDLE_PORT=$(find_idle_port)
+
+echo "set \$service_url http://127.0.0.1:${IDLE_PORT};" | sudo tee /etc/nginx/conf.d/service-url.inc
+
+sudo service nginx reload
+
+```
+* Updates the service-url.inc file in the Nginx configuration directory to point to the new port. This effectively switches the proxy to the new application instance.
+* Reloads the Nginx configuration to apply the changes.
+
 ## health.sh
+* This script performs a health check on an idle port and switches the proxy if the health check is successful.
+* This is used in the deployment process to ensure the new application instance is running properly before switching traffic to it.
 
 # Study & Troubleshooting
 - [Hibernate & JPA]
